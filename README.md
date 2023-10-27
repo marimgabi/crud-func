@@ -6,6 +6,7 @@ Este é um projeto de uma API para cadastro, edição, listagem e deleção de f
 ## Tecnologias utilizadas
 - Next.js - 13.5.6
 - PostgreSQL - 14.3
+- Supabse
 
 ## Como executar o projeto
 Primeiramente clone o repositório: 
@@ -16,7 +17,7 @@ Acesse a pasta raiz do projeto `crud-func` na sua máquina e utilize o comando a
 ```bash
 $ npm install
 ```
-Para este projeto será necessária a criação de um banco de dados PostgreSQL localmente. A SQL de criação do banco está disponível na pasta `crud-func/database/crud-func.sql`. O banco a ser criado possui apenas uma tabela no schema `public` denominada `funcionario`. Segue abaixo o script de criação da tabela:
+Este projeto está conectado ao Supabase, portanto é possível utilizar um banco postgresSQL local ou o próprio Supabase. Caso deseje utilizar um banco local, a SQL de criação do banco está disponível na pasta `crud-func/database/crud-func.sql`. O banco a ser criado possui apenas uma tabela no schema `public` denominada `funcionario`. Segue abaixo o script de criação da tabela:
 ```bash
 CREATE  TABLE  IF  NOT  EXISTS public.funcionario(
 	id integer  NOT NULL  DEFAULT nextval('funcionario_id_seq'::regclass),
@@ -31,6 +32,12 @@ Para conectar a aplicação ao banco criado, coloque na variável `DATABASE_URL`
 ```bash
 DATABASE_URL="postgres://postgres:[SENHA]@localhost:5432/[NOME DO BANCO]?schema=public"
 ```
+Caso tenha optado pela utilização do Supabase, basta colocar na variável `DATABASE_URL` a string de conexão fornecida.
+
+```bash
+DATABASE_URL="postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-DATABASE].supabase.co:5432/postgres"
+```
+
 O serviço estará disponível na porta 3000, acesse [localhost:3000](http://localhost:3000).
 
 ## Endpoints
