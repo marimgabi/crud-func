@@ -47,7 +47,7 @@ $ curl -X POST -H "Content-Type: application/json" -d '{"name":"nome","email":"e
 - funcionario/{id} (GET, PUT, DELETE)
 ```bash
 # PUT
-$ curl -X PUT -H "Content-Type: application/json" -d '{"id":1, "name":"nome","email":"email", "department":"department"}'
+$ curl -X PUT -H "Content-Type: application/json" -d '{"name":"nome","email":"email", "department":"department"}'
 
 # GET
 $ curl -X GET http://localhost:3000/api/funcionario/{id}
