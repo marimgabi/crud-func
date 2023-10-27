@@ -6,7 +6,7 @@ Este é um projeto de uma API para cadastro, edição, listagem e deleção de f
 ## Tecnologias utilizadas
 - Next.js - 13.5.6
 - PostgreSQL - 14.3
-- Supabse
+- Supabase
 
 ## Como executar o projeto
 Primeiramente clone o repositório: 
