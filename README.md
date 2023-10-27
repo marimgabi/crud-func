@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Crud para gerenciamento de funcionários
 
-## Getting Started
+##  Sobre
+Este é um projeto de uma API para cadastro, edição, listagem e deleção de funcionários.
 
-First, run the development server:
+## Tecnologias utilizadas
+- Next.js - 13.5.6
+- PostgreSQL - 14.3
 
+## Como executar o projeto
+Primeiramente clone o repositório: 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ git clone https://github.com/marimgabi/crud-func.git
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Acesse a pasta raiz do projeto `crud-func` na sua máquina e utilize o comando abaixo para instalar as dependências:
+```bash
+$ npm install
+```
+Para este projeto será necessária a criação de um banco de dados PostgreSQL localmente. A SQL de criação do banco está disponível na pasta `crud-func/database/crud-func.sql`. O banco a ser criado possui apenas uma tabela no schema `public` denominada `funcionario`. Segue abaixo o script de criação da tabela:
+```bash
+CREATE  TABLE  IF  NOT  EXISTS public.funcionario(
+	id integer  NOT NULL  DEFAULT nextval('funcionario_id_seq'::regclass),
+	name  character varying(200) COLLATE pg_catalog."default",
+	email character varying(500) COLLATE pg_catalog."default",
+	department character varying(200) COLLATE pg_catalog."default",
+	date  timestamp with time zone,
+	CONSTRAINT funcionario_pkey PRIMARY KEY (id)
+)
+```
+Para conectar a aplicação ao banco criado, coloque na variável `DATABASE_URL` no arquivo `.env` do seu projeto a url do banco local.
+```bash
+DATABASE_URL="postgres://postgres:[SENHA]@localhost:5432/[NOME DO BANCO]?schema=public"
+```
+O serviço estará disponível na porta 3000, acesse [localhost:3000](http://localhost:3000).
