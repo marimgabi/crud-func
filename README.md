@@ -46,7 +46,7 @@ A API conta com duas rotas principais, sendo elas:
 - funcionario (GET, POST)
 ```bash
 # GET
-$ curl -X GET http://localhost:3000/api/funcionario
+$ curl -X GET https://crud-func-rhk343874-gabrielas-projects-2010131d.vercel.app/api/funcionario
 
 # POST
 $ curl -X POST -H "Content-Type: application/json" -d '{"name":"nome","email":"email", "department":"department"}'
@@ -57,8 +57,8 @@ $ curl -X POST -H "Content-Type: application/json" -d '{"name":"nome","email":"e
 $ curl -X PUT -H "Content-Type: application/json" -d '{"name":"nome","email":"email", "department":"department"}'
 
 # GET
-$ curl -X GET http://localhost:3000/api/funcionario/{id}
+$ curl -X GET https://crud-func-rhk343874-gabrielas-projects-2010131d.vercel.app/api/funcionario/{id}
 
 # DELETE
-$ curl -X DELETE http://localhost:3000/api/funcionario/{id}
+$ curl -X DELETE https://crud-func-rhk343874-gabrielas-projects-2010131d.vercel.app/api/funcionario/{id}
 ``` 
