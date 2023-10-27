@@ -32,3 +32,26 @@ Para conectar a aplicação ao banco criado, coloque na variável `DATABASE_URL`
 DATABASE_URL="postgres://postgres:[SENHA]@localhost:5432/[NOME DO BANCO]?schema=public"
 ```
 O serviço estará disponível na porta 3000, acesse [localhost:3000](http://localhost:3000).
+
+## Endpoints
+
+A API conta com duas rotas principais, sendo elas:
+- funcionario (GET, POST)
+```bash
+# GET
+$ curl -X GET http://localhost:3000/api/funcionario
+
+# POST
+$ curl -X POST -H "Content-Type: application/json" -d '{"name":"nome","email":"email", "department":"department"}'
+```
+- funcionario/{id} (GET, PUT, DELETE)
+```bash
+# PUT
+$ curl -X PUT -H "Content-Type: application/json" -d '{"id":1, "name":"nome","email":"email", "department":"department"}'
+
+# GET
+$ curl -X GET http://localhost:3000/api/funcionario/{id}
+
+# DELETE
+$ curl -X DELETE http://localhost:3000/api/funcionario/{id}
+``` 
